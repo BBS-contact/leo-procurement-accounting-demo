@@ -1,0 +1,1398 @@
+{
+  "report_id": "LOCAL_DEMO_REPORT",
+  "generated_at": "2026-05-26T03:58:35.435504+00:00",
+  "source_name": "procurement_accounting_input_pipeline.py",
+  "zero_autonomy_boundary": {
+    "autonomous_enforcement_actions": 0,
+    "canonical_registry_opened": false,
+    "canonical_registry_mutated": false,
+    "production_records_mutated": false,
+    "signing_or_key_access_performed": false,
+    "external_execution_performed": false,
+    "pipeline_mode": "LOCAL_READ_ONLY_DEMO"
+  },
+  "summary": {
+    "findings_count": 21,
+    "evidence_count": 21,
+    "supplier_count": 7,
+    "high_or_critical_findings_count": 7,
+    "reviewed_findings_count": 0,
+    "signal_families": {
+      "price_above_benchmark": 2,
+      "unusual_quantity_signal": 2,
+      "supplier_activity_mismatch": 12,
+      "supplier_capacity_risk": 1,
+      "threshold_fragmentation_pattern": 4
+    }
+  },
+  "evidence": [
+    {
+      "id": "EV-001",
+      "title": "Price above benchmark",
+      "severity": "CRITICAL",
+      "supplier": "North Bridge Office Supplies Sp. z o.o.",
+      "subject": "North Bridge Office Supplies Sp. z o.o.",
+      "detected_signal": "Observed unit price (230.00 PLN) is 2.30x benchmark median (100.00 PLN).",
+      "risk_meaning": "The paid or proposed unit price is materially higher than the benchmark. This may be legitimate, but it requires justification such as quality, urgency, specification, or market conditions.",
+      "reviewer_question": "Is there documented justification for the price difference?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "source_records": [
+        "P-001"
+      ],
+      "signal_family": "price_above_benchmark",
+      "raw_context": {
+        "record_id": "P-001",
+        "item_category": "office_supplies",
+        "item_name": "Printer paper A4",
+        "unit_price": "230.00",
+        "benchmark_median_unit_price": "100.00",
+        "ratio": "2.3",
+        "benchmark_source": "internal_demo_benchmark"
+      },
+      "reason": "Observed unit price (230.00 PLN) is 2.30x benchmark median (100.00 PLN).",
+      "description": "Observed unit price (230.00 PLN) is 2.30x benchmark median (100.00 PLN).",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Price above benchmark",
+      "risk_level": "CRITICAL",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-002",
+      "title": "Unusual quantity signal",
+      "severity": "MEDIUM",
+      "supplier": "North Bridge Office Supplies Sp. z o.o.",
+      "subject": "North Bridge Office Supplies Sp. z o.o.",
+      "detected_signal": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "risk_meaning": "The quantity is large enough to require operational justification, delivery context, and need verification.",
+      "reviewer_question": "Is the quantity supported by real need, delivery plan, and usage evidence?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "source_records": [
+        "P-001"
+      ],
+      "signal_family": "unusual_quantity_signal",
+      "raw_context": {
+        "record_id": "P-001",
+        "quantity": "500",
+        "threshold": "250"
+      },
+      "reason": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "description": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Unusual quantity signal",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-003",
+      "title": "Price above benchmark",
+      "severity": "HIGH",
+      "supplier": "QuickBuild Technical Services Sp. z o.o.",
+      "subject": "QuickBuild Technical Services Sp. z o.o.",
+      "detected_signal": "Observed unit price (15000.00 PLN) is 1.88x benchmark median (8000.00 PLN).",
+      "risk_meaning": "The paid or proposed unit price is materially higher than the benchmark. This may be legitimate, but it requires justification such as quality, urgency, specification, or market conditions.",
+      "reviewer_question": "Is there documented justification for the price difference?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "source_records": [
+        "P-002"
+      ],
+      "signal_family": "price_above_benchmark",
+      "raw_context": {
+        "record_id": "P-002",
+        "item_category": "it_services",
+        "item_name": "Network infrastructure service",
+        "unit_price": "15000.00",
+        "benchmark_median_unit_price": "8000.00",
+        "ratio": "1.875",
+        "benchmark_source": "internal_demo_benchmark"
+      },
+      "reason": "Observed unit price (15000.00 PLN) is 1.88x benchmark median (8000.00 PLN).",
+      "description": "Observed unit price (15000.00 PLN) is 1.88x benchmark median (8000.00 PLN).",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Price above benchmark",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-004",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "QuickBuild Technical Services Sp. z o.o.",
+      "subject": "QuickBuild Technical Services Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "source_records": [
+        "P-002"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-002",
+        "supplier_id": "S-004",
+        "declared_activity": "construction_services",
+        "item_category": "it_services"
+      },
+      "reason": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-005",
+      "title": "Supplier capacity risk",
+      "severity": "HIGH",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Low-capacity supplier (0.25) received high-value procurement (97500.00 PLN).",
+      "risk_meaning": "The supplier capacity appears weak relative to the procurement value. The reviewer should check whether the supplier can realistically deliver.",
+      "reviewer_question": "Can the supplier prove operational capability for this value and scope?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "source_records": [
+        "P-003"
+      ],
+      "signal_family": "supplier_capacity_risk",
+      "raw_context": {
+        "record_id": "P-003",
+        "supplier_id": "S-003",
+        "capacity_score": "0.25",
+        "total_value": "97500.00",
+        "currency": "PLN"
+      },
+      "reason": "Low-capacity supplier (0.25) received high-value procurement (97500.00 PLN).",
+      "description": "Low-capacity supplier (0.25) received high-value procurement (97500.00 PLN).",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier capacity risk",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-006",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "source_records": [
+        "P-003"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-003",
+        "supplier_id": "S-003",
+        "declared_activity": "consulting",
+        "item_category": "it_equipment"
+      },
+      "reason": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-007",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "source_records": [
+        "P-004"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-004",
+        "supplier_id": "S-003",
+        "declared_activity": "consulting",
+        "item_category": "it_equipment"
+      },
+      "reason": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-008",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "GreenLeaf Catering Sp. z o.o.",
+      "subject": "GreenLeaf Catering Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('catering') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "source_records": [
+        "P-005"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-005",
+        "supplier_id": "S-005",
+        "declared_activity": "catering",
+        "item_category": "medical_equipment"
+      },
+      "reason": "Supplier declared activity ('catering') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('catering') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-009",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MedPaper Logistics Sp. z o.o.",
+      "subject": "MedPaper Logistics Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('logistics') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "source_records": [
+        "P-006"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-006",
+        "supplier_id": "S-006",
+        "declared_activity": "logistics",
+        "item_category": "medical_equipment"
+      },
+      "reason": "Supplier declared activity ('logistics') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('logistics') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-010",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "QuickBuild Technical Services Sp. z o.o.",
+      "subject": "QuickBuild Technical Services Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "source_records": [
+        "P-007"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-007",
+        "supplier_id": "S-004",
+        "declared_activity": "construction_services",
+        "item_category": "it_services"
+      },
+      "reason": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-011",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('consulting') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "source_records": [
+        "P-008"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-008",
+        "supplier_id": "S-003",
+        "declared_activity": "consulting",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('consulting') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('consulting') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-012",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "source_records": [
+        "P-009"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-009",
+        "supplier_id": "S-002",
+        "declared_activity": "general_trade",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-013",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "source_records": [
+        "P-010"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-010",
+        "supplier_id": "S-002",
+        "declared_activity": "general_trade",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-014",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "source_records": [
+        "P-011"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-011",
+        "supplier_id": "S-002",
+        "declared_activity": "general_trade",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-015",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "ClearMed Equipment Group Sp. z o.o.",
+      "subject": "ClearMed Equipment Group Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('medical_equipment') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-015"
+      ],
+      "source_records": [
+        "P-012"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-012",
+        "supplier_id": "S-007",
+        "declared_activity": "medical_equipment",
+        "item_category": "it_equipment"
+      },
+      "reason": "Supplier declared activity ('medical_equipment') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('medical_equipment') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-016",
+      "title": "Unusual quantity signal",
+      "severity": "MEDIUM",
+      "supplier": "North Bridge Office Supplies Sp. z o.o.",
+      "subject": "North Bridge Office Supplies Sp. z o.o.",
+      "detected_signal": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "risk_meaning": "The quantity is large enough to require operational justification, delivery context, and need verification.",
+      "reviewer_question": "Is the quantity supported by real need, delivery plan, and usage evidence?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-016"
+      ],
+      "source_records": [
+        "P-013"
+      ],
+      "signal_family": "unusual_quantity_signal",
+      "raw_context": {
+        "record_id": "P-013",
+        "quantity": "500",
+        "threshold": "250"
+      },
+      "reason": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "description": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Unusual quantity signal",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-017",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-017"
+      ],
+      "source_records": [
+        "P-014"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-014",
+        "supplier_id": "S-002",
+        "declared_activity": "general_trade",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-018",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-018"
+      ],
+      "source_records": [
+        "P-009",
+        "P-010",
+        "P-011",
+        "P-014"
+      ],
+      "signal_family": "threshold_fragmentation_pattern",
+      "raw_context": {
+        "record_id": "P-009",
+        "supplier_id": "S-002",
+        "department": "Facilities",
+        "item_category": "construction_services",
+        "currency": "PLN",
+        "cluster_record_ids": [
+          "P-009",
+          "P-010",
+          "P-011",
+          "P-014"
+        ],
+        "cluster_count": 4,
+        "cumulative_value": "38500.00"
+      },
+      "reason": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "description": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Threshold fragmentation pattern",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-019",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-019"
+      ],
+      "source_records": [
+        "P-009",
+        "P-010",
+        "P-011",
+        "P-014"
+      ],
+      "signal_family": "threshold_fragmentation_pattern",
+      "raw_context": {
+        "record_id": "P-010",
+        "supplier_id": "S-002",
+        "department": "Facilities",
+        "item_category": "construction_services",
+        "currency": "PLN",
+        "cluster_record_ids": [
+          "P-009",
+          "P-010",
+          "P-011",
+          "P-014"
+        ],
+        "cluster_count": 4,
+        "cumulative_value": "38500.00"
+      },
+      "reason": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "description": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Threshold fragmentation pattern",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-020",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-020"
+      ],
+      "source_records": [
+        "P-009",
+        "P-010",
+        "P-011",
+        "P-014"
+      ],
+      "signal_family": "threshold_fragmentation_pattern",
+      "raw_context": {
+        "record_id": "P-011",
+        "supplier_id": "S-002",
+        "department": "Facilities",
+        "item_category": "construction_services",
+        "currency": "PLN",
+        "cluster_record_ids": [
+          "P-009",
+          "P-010",
+          "P-011",
+          "P-014"
+        ],
+        "cluster_count": 4,
+        "cumulative_value": "38500.00"
+      },
+      "reason": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "description": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Threshold fragmentation pattern",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-021",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-021"
+      ],
+      "source_records": [
+        "P-009",
+        "P-010",
+        "P-011",
+        "P-014"
+      ],
+      "signal_family": "threshold_fragmentation_pattern",
+      "raw_context": {
+        "record_id": "P-014",
+        "supplier_id": "S-002",
+        "department": "Facilities",
+        "item_category": "construction_services",
+        "currency": "PLN",
+        "cluster_record_ids": [
+          "P-009",
+          "P-010",
+          "P-011",
+          "P-014"
+        ],
+        "cluster_count": 4,
+        "cumulative_value": "38500.00"
+      },
+      "reason": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "description": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Threshold fragmentation pattern",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    }
+  ],
+  "findings": [
+    {
+      "id": "EV-001",
+      "title": "Price above benchmark",
+      "severity": "CRITICAL",
+      "supplier": "North Bridge Office Supplies Sp. z o.o.",
+      "subject": "North Bridge Office Supplies Sp. z o.o.",
+      "detected_signal": "Observed unit price (230.00 PLN) is 2.30x benchmark median (100.00 PLN).",
+      "risk_meaning": "The paid or proposed unit price is materially higher than the benchmark. This may be legitimate, but it requires justification such as quality, urgency, specification, or market conditions.",
+      "reviewer_question": "Is there documented justification for the price difference?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "source_records": [
+        "P-001"
+      ],
+      "signal_family": "price_above_benchmark",
+      "raw_context": {
+        "record_id": "P-001",
+        "item_category": "office_supplies",
+        "item_name": "Printer paper A4",
+        "unit_price": "230.00",
+        "benchmark_median_unit_price": "100.00",
+        "ratio": "2.3",
+        "benchmark_source": "internal_demo_benchmark"
+      },
+      "reason": "Observed unit price (230.00 PLN) is 2.30x benchmark median (100.00 PLN).",
+      "description": "Observed unit price (230.00 PLN) is 2.30x benchmark median (100.00 PLN).",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Price above benchmark",
+      "risk_level": "CRITICAL",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-002",
+      "title": "Unusual quantity signal",
+      "severity": "MEDIUM",
+      "supplier": "North Bridge Office Supplies Sp. z o.o.",
+      "subject": "North Bridge Office Supplies Sp. z o.o.",
+      "detected_signal": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "risk_meaning": "The quantity is large enough to require operational justification, delivery context, and need verification.",
+      "reviewer_question": "Is the quantity supported by real need, delivery plan, and usage evidence?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "source_records": [
+        "P-001"
+      ],
+      "signal_family": "unusual_quantity_signal",
+      "raw_context": {
+        "record_id": "P-001",
+        "quantity": "500",
+        "threshold": "250"
+      },
+      "reason": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "description": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Unusual quantity signal",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-003",
+      "title": "Price above benchmark",
+      "severity": "HIGH",
+      "supplier": "QuickBuild Technical Services Sp. z o.o.",
+      "subject": "QuickBuild Technical Services Sp. z o.o.",
+      "detected_signal": "Observed unit price (15000.00 PLN) is 1.88x benchmark median (8000.00 PLN).",
+      "risk_meaning": "The paid or proposed unit price is materially higher than the benchmark. This may be legitimate, but it requires justification such as quality, urgency, specification, or market conditions.",
+      "reviewer_question": "Is there documented justification for the price difference?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "source_records": [
+        "P-002"
+      ],
+      "signal_family": "price_above_benchmark",
+      "raw_context": {
+        "record_id": "P-002",
+        "item_category": "it_services",
+        "item_name": "Network infrastructure service",
+        "unit_price": "15000.00",
+        "benchmark_median_unit_price": "8000.00",
+        "ratio": "1.875",
+        "benchmark_source": "internal_demo_benchmark"
+      },
+      "reason": "Observed unit price (15000.00 PLN) is 1.88x benchmark median (8000.00 PLN).",
+      "description": "Observed unit price (15000.00 PLN) is 1.88x benchmark median (8000.00 PLN).",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Price above benchmark",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-004",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "QuickBuild Technical Services Sp. z o.o.",
+      "subject": "QuickBuild Technical Services Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "source_records": [
+        "P-002"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-002",
+        "supplier_id": "S-004",
+        "declared_activity": "construction_services",
+        "item_category": "it_services"
+      },
+      "reason": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-005",
+      "title": "Supplier capacity risk",
+      "severity": "HIGH",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Low-capacity supplier (0.25) received high-value procurement (97500.00 PLN).",
+      "risk_meaning": "The supplier capacity appears weak relative to the procurement value. The reviewer should check whether the supplier can realistically deliver.",
+      "reviewer_question": "Can the supplier prove operational capability for this value and scope?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "source_records": [
+        "P-003"
+      ],
+      "signal_family": "supplier_capacity_risk",
+      "raw_context": {
+        "record_id": "P-003",
+        "supplier_id": "S-003",
+        "capacity_score": "0.25",
+        "total_value": "97500.00",
+        "currency": "PLN"
+      },
+      "reason": "Low-capacity supplier (0.25) received high-value procurement (97500.00 PLN).",
+      "description": "Low-capacity supplier (0.25) received high-value procurement (97500.00 PLN).",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier capacity risk",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-006",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "source_records": [
+        "P-003"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-003",
+        "supplier_id": "S-003",
+        "declared_activity": "consulting",
+        "item_category": "it_equipment"
+      },
+      "reason": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-007",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "source_records": [
+        "P-004"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-004",
+        "supplier_id": "S-003",
+        "declared_activity": "consulting",
+        "item_category": "it_equipment"
+      },
+      "reason": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-008",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "GreenLeaf Catering Sp. z o.o.",
+      "subject": "GreenLeaf Catering Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('catering') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "source_records": [
+        "P-005"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-005",
+        "supplier_id": "S-005",
+        "declared_activity": "catering",
+        "item_category": "medical_equipment"
+      },
+      "reason": "Supplier declared activity ('catering') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('catering') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-009",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MedPaper Logistics Sp. z o.o.",
+      "subject": "MedPaper Logistics Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('logistics') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "source_records": [
+        "P-006"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-006",
+        "supplier_id": "S-006",
+        "declared_activity": "logistics",
+        "item_category": "medical_equipment"
+      },
+      "reason": "Supplier declared activity ('logistics') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('logistics') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-010",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "QuickBuild Technical Services Sp. z o.o.",
+      "subject": "QuickBuild Technical Services Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "source_records": [
+        "P-007"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-007",
+        "supplier_id": "S-004",
+        "declared_activity": "construction_services",
+        "item_category": "it_services"
+      },
+      "reason": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-011",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('consulting') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "source_records": [
+        "P-008"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-008",
+        "supplier_id": "S-003",
+        "declared_activity": "consulting",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('consulting') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('consulting') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-012",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "source_records": [
+        "P-009"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-009",
+        "supplier_id": "S-002",
+        "declared_activity": "general_trade",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-013",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "source_records": [
+        "P-010"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-010",
+        "supplier_id": "S-002",
+        "declared_activity": "general_trade",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-014",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "source_records": [
+        "P-011"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-011",
+        "supplier_id": "S-002",
+        "declared_activity": "general_trade",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-015",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "ClearMed Equipment Group Sp. z o.o.",
+      "subject": "ClearMed Equipment Group Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('medical_equipment') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-015"
+      ],
+      "source_records": [
+        "P-012"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-012",
+        "supplier_id": "S-007",
+        "declared_activity": "medical_equipment",
+        "item_category": "it_equipment"
+      },
+      "reason": "Supplier declared activity ('medical_equipment') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('medical_equipment') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-016",
+      "title": "Unusual quantity signal",
+      "severity": "MEDIUM",
+      "supplier": "North Bridge Office Supplies Sp. z o.o.",
+      "subject": "North Bridge Office Supplies Sp. z o.o.",
+      "detected_signal": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "risk_meaning": "The quantity is large enough to require operational justification, delivery context, and need verification.",
+      "reviewer_question": "Is the quantity supported by real need, delivery plan, and usage evidence?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-016"
+      ],
+      "source_records": [
+        "P-013"
+      ],
+      "signal_family": "unusual_quantity_signal",
+      "raw_context": {
+        "record_id": "P-013",
+        "quantity": "500",
+        "threshold": "250"
+      },
+      "reason": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "description": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Unusual quantity signal",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-017",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-017"
+      ],
+      "source_records": [
+        "P-014"
+      ],
+      "signal_family": "supplier_activity_mismatch",
+      "raw_context": {
+        "record_id": "P-014",
+        "supplier_id": "S-002",
+        "declared_activity": "general_trade",
+        "item_category": "construction_services"
+      },
+      "reason": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "description": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Supplier activity mismatch",
+      "risk_level": "MEDIUM",
+      "recommended_action": "Request contextual verification and supporting evidence."
+    },
+    {
+      "id": "EV-018",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-018"
+      ],
+      "source_records": [
+        "P-009",
+        "P-010",
+        "P-011",
+        "P-014"
+      ],
+      "signal_family": "threshold_fragmentation_pattern",
+      "raw_context": {
+        "record_id": "P-009",
+        "supplier_id": "S-002",
+        "department": "Facilities",
+        "item_category": "construction_services",
+        "currency": "PLN",
+        "cluster_record_ids": [
+          "P-009",
+          "P-010",
+          "P-011",
+          "P-014"
+        ],
+        "cluster_count": 4,
+        "cumulative_value": "38500.00"
+      },
+      "reason": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "description": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Threshold fragmentation pattern",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-019",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-019"
+      ],
+      "source_records": [
+        "P-009",
+        "P-010",
+        "P-011",
+        "P-014"
+      ],
+      "signal_family": "threshold_fragmentation_pattern",
+      "raw_context": {
+        "record_id": "P-010",
+        "supplier_id": "S-002",
+        "department": "Facilities",
+        "item_category": "construction_services",
+        "currency": "PLN",
+        "cluster_record_ids": [
+          "P-009",
+          "P-010",
+          "P-011",
+          "P-014"
+        ],
+        "cluster_count": 4,
+        "cumulative_value": "38500.00"
+      },
+      "reason": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "description": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Threshold fragmentation pattern",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-020",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-020"
+      ],
+      "source_records": [
+        "P-009",
+        "P-010",
+        "P-011",
+        "P-014"
+      ],
+      "signal_family": "threshold_fragmentation_pattern",
+      "raw_context": {
+        "record_id": "P-011",
+        "supplier_id": "S-002",
+        "department": "Facilities",
+        "item_category": "construction_services",
+        "currency": "PLN",
+        "cluster_record_ids": [
+          "P-009",
+          "P-010",
+          "P-011",
+          "P-014"
+        ],
+        "cluster_count": 4,
+        "cumulative_value": "38500.00"
+      },
+      "reason": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "description": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Threshold fragmentation pattern",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    },
+    {
+      "id": "EV-021",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-021"
+      ],
+      "source_records": [
+        "P-009",
+        "P-010",
+        "P-011",
+        "P-014"
+      ],
+      "signal_family": "threshold_fragmentation_pattern",
+      "raw_context": {
+        "record_id": "P-014",
+        "supplier_id": "S-002",
+        "department": "Facilities",
+        "item_category": "construction_services",
+        "currency": "PLN",
+        "cluster_record_ids": [
+          "P-009",
+          "P-010",
+          "P-011",
+          "P-014"
+        ],
+        "cluster_count": 4,
+        "cumulative_value": "38500.00"
+      },
+      "reason": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "description": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "type": "EVIDENCE_OBJECT",
+      "signal_title": "Threshold fragmentation pattern",
+      "risk_level": "HIGH",
+      "recommended_action": "Escalate for human review before any institutional decision."
+    }
+  ]
+}
