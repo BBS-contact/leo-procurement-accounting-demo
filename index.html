@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="1; url=leo_demo_dashboard.html" />
+  <title>LEO Procurement / Accounting Local Review Demo v0.6</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1020;
+      --panel: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #60a5fa;
+      --border: #1f2937;
+      --warning: #fbbf24;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #172554 0, var(--bg) 45%, #020617 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    main {
+      max-width: 760px;
+      width: 100%;
+      background: rgba(17, 24, 39, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.1;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 12px 0 24px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(96, 165, 250, 0.12);
+      border: 1px solid rgba(96, 165, 250, 0.35);
+      color: #bfdbfe;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .boundary {
+      margin: 24px 0;
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(251, 191, 36, 0.08);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      color: #fde68a;
+      font-size: 14px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(96, 165, 250, 0.45);
+      background: rgba(96, 165, 250, 0.16);
+      color: #dbeafe;
+    }
+
+    .button.secondary {
+      border-color: rgba(156, 163, 175, 0.35);
+      background: rgba(156, 163, 175, 0.10);
+      color: var(--text);
+    }
+
+    .small {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="status">LEO Local Prototype Demo v0.6</div>
+    <h1>Procurement / Accounting Local Review Demo</h1>
+    <p>
+      This page launches the LEO procurement/accounting local review dashboard.
+      The demo shows evidence-linked review signals, source-trust warnings,
+      reliability boundaries, reviewer workflow, and local export packages.
+    </p>
+
+    <div class="boundary">
+      Human-review-only local prototype. No autonomous enforcement. No fraud verdict.
+      No legal certification. No donor compliance certification. Not production-ready.
+    </div>
+
+    <p>
+      Redirecting to the dashboard automatically. If nothing happens, use the button below.
+    </p>
+
+    <div class="actions">
+      <a class="button" href="leo_demo_dashboard.html">Open Dashboard</a>
+      <a class="button secondary" href="README.md">Read Repository README</a>
+      <a class="button secondary" href="docs/LEO_LOCAL_PROTOTYPE_LIMITATIONS_AND_PRODUCTION_READINESS_BOUNDARY_v0.1.md">Read Limitations</a>
+    </div>
+
+    <p class="small">
+      Recommended input file inside the repository: output/demo_evidence_report.json
+    </p>
+  </main>
+</body>
+</html>
