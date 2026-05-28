@@ -1,42 +1,14 @@
 # LEO Procurement / Accounting Local Review Demo v0.6
 
-Canonical save path:
+This repository contains a local demonstration of the LEO Procurement / Accounting Review Module v0.6.
 
-`D:\BBS-09-01-2026\leo\runtime\demos\procurement_accounting_anomaly_audit\docs\LEO_PROCUREMENT_ACCOUNTING_PUBLIC_REPOSITORY_README_v0.1.md`
+LEO is a human-controlled institutional review support system. This demo shows how procurement/accounting data can be transformed into evidence-linked review signals, reviewer questions, reliability warnings, source-trust boundaries, and local review packages.
 
-Recommended public repository README path after publication staging:
-
-`demos/procurement_accounting_anomaly_audit/README.md`
-
-Related repository publication precheck:
-
-`D:\BBS-09-01-2026\leo\runtime\demos\procurement_accounting_anomaly_audit\docs\LEO_PROCUREMENT_ACCOUNTING_REPOSITORY_PUBLICATION_PRECHECK_v0.1.md`
-
-Related dashboard file:
-
-`D:\BBS-09-01-2026\leo\runtime\demos\procurement_accounting_anomaly_audit\leo_demo_dashboard.html`
-
-Document status: PUBLIC REPOSITORY README SOURCE
-
-Dashboard version: v0.6 — Reviewer Workflow Hardening
-
-Publication status: README PREPARED, NOT YET PUBLISHED
+The demo is designed to support human review. It is not an autonomous decision system.
 
 ---
 
-# LEO Procurement / Accounting Local Review Demo v0.6
-
-This folder contains a local demonstration of the LEO Procurement / Accounting Review Module v0.6.
-
-The demo shows how procurement/accounting data can be transformed into evidence-linked review signals, reviewer questions, reliability warnings, source-trust boundaries, and local review packages.
-
-The demo is human-review-only.
-
-It does not create fraud verdicts, legal conclusions, compliance certifications, payment decisions, supplier sanctions, or enforcement actions.
-
----
-
-# Status
+## Status
 
 ```text
 LOCAL PROTOTYPE ONLY
@@ -53,7 +25,7 @@ DEMO DATA ONLY
 
 ---
 
-# What this demo does
+## What this demo does
 
 The demo dashboard can:
 
@@ -68,11 +40,11 @@ The demo dashboard can:
 * generate a local reviewer memo;
 * export a local human review package with warnings and boundaries.
 
-The demo is intended to show a review workflow, not an autonomous decision system.
+The purpose is to demonstrate a structured review workflow, not to automate institutional decisions.
 
 ---
 
-# What this demo does not do
+## What this demo does not do
 
 This demo does not:
 
@@ -97,7 +69,7 @@ Human review remains required.
 
 ---
 
-# Current demo baseline
+## Current demo baseline
 
 The current v0.6 demo baseline is:
 
@@ -121,12 +93,10 @@ These values are expected when the included demo evidence report is loaded.
 
 ---
 
-# Folder contents
-
-Recommended public folder structure:
+## Repository contents
 
 ```text
-demos/procurement_accounting_anomaly_audit/
+leo-procurement-accounting-demo/
   README.md
   leo_demo_dashboard.html
   output/
@@ -142,27 +112,29 @@ demos/procurement_accounting_anomaly_audit/
 
 ---
 
-# How to run the demo locally
+## How to run the demo locally
 
-1. Open the dashboard file in a modern desktop browser:
+1. Download or clone this repository.
+
+2. Open the dashboard file in a modern desktop browser:
 
 ```text
 leo_demo_dashboard.html
 ```
 
-2. Load the demo evidence report when prompted or through the file upload control:
+3. Load the included demo evidence report through the dashboard file upload control:
 
 ```text
 output/demo_evidence_report.json
 ```
 
-3. Start with:
+4. Start with:
 
 ```text
 Executive View
 ```
 
-4. Review the main dashboard sections:
+5. Review the main dashboard sections:
 
 ```text
 Executive Summary
@@ -172,17 +144,15 @@ Review Completion
 Export Readiness
 ```
 
-5. Open a finding card to inspect evidence, rule trace, reviewer question, and reliability state.
+6. Open a finding card to inspect evidence, rule trace, reviewer question, and reliability state.
 
-6. Use reviewer actions only as local annotations.
+7. Use reviewer actions only as local annotations.
 
-7. Export a local human review package if needed.
+8. Export a local human review package if needed.
 
 ---
 
-# Recommended demo flow
-
-Recommended live walkthrough:
+## Recommended demo flow
 
 ```text
 1. Open leo_demo_dashboard.html.
@@ -192,11 +162,11 @@ Recommended live walkthrough:
 5. Show Priority Review Queue.
 6. Open one finding, for example EV-001.
 7. Show evidence, rule trace, and reviewer question.
-8. Show Reliability state.
+8. Show reliability state.
 9. Show Review Completion panel.
 10. Show Export Readiness Gate.
-11. Export local review package.
-12. Explain boundaries.
+11. Export a local review package.
+12. Explain the boundaries.
 ```
 
 Recommended duration:
@@ -208,7 +178,7 @@ Recommended duration:
 
 ---
 
-# Key concept
+## Key concept
 
 A finding is not a verdict.
 
@@ -230,7 +200,7 @@ supplier must be sanctioned
 
 ---
 
-# Source trust and reliability
+## Source trust and reliability
 
 The current demo uses local demo data.
 
@@ -258,7 +228,7 @@ Future production versions would require trusted ingestion, cross-source verific
 
 ---
 
-# Export package meaning
+## Export package meaning
 
 The exported package is a local human review package.
 
@@ -280,7 +250,7 @@ The exported package is not legal certification, external audit submission, prod
 
 ---
 
-# Known limitations
+## Known limitations
 
 The current demo has important limitations:
 
@@ -296,7 +266,7 @@ The current demo has important limitations:
 * no production archive;
 * no legal or compliance authority.
 
-See:
+For the full limitations and production-readiness boundary, see:
 
 ```text
 docs/LEO_LOCAL_PROTOTYPE_LIMITATIONS_AND_PRODUCTION_READINESS_BOUNDARY_v0.1.md
@@ -304,7 +274,24 @@ docs/LEO_LOCAL_PROTOTYPE_LIMITATIONS_AND_PRODUCTION_READINESS_BOUNDARY_v0.1.md
 
 ---
 
-# Future development direction
+## Documentation
+
+Useful documentation included in this repository:
+
+```text
+docs/LEO_PROCUREMENT_ACCOUNTING_ONE_PAGE_EXTERNAL_EXPLANATION_v0.6.md
+docs/LEO_LOCAL_PROTOTYPE_LIMITATIONS_AND_PRODUCTION_READINESS_BOUNDARY_v0.1.md
+docs/LEO_PROCUREMENT_ACCOUNTING_LOCAL_DEMO_PACKAGE_INDEX_v0.6.md
+docs/LEO_PROCUREMENT_ACCOUNTING_DASHBOARD_V0_6_FINAL_DEMO_READINESS_CHECKPOINT_v0.1.md
+```
+
+The one-page explanation is the best starting point for external readers.
+
+The limitations document should be read before interpreting this prototype as a production-ready system.
+
+---
+
+## Future development direction
 
 Future work may include:
 
@@ -323,7 +310,7 @@ These are not included in v0.6.
 
 ---
 
-# Correct public description
+## Correct public description
 
 ```text
 LEO helps institutions turn procurement and accounting uncertainty into evidence-linked review signals, reviewer questions, reliability warnings, and exportable local review packages without autonomous enforcement.
@@ -331,7 +318,7 @@ LEO helps institutions turn procurement and accounting uncertainty into evidence
 
 ---
 
-# Safety boundary
+## Safety boundary
 
 This demo is provided as a local prototype for demonstration and pilot discussion.
 
@@ -339,22 +326,10 @@ It must not be used as a production audit system, legal decision system, donor c
 
 ---
 
-# Repository publication note
+## Data safety note
 
-Before publishing or updating this folder, verify that included files contain only demo-safe data and no private keys, credentials, tokens, real bank records, real confidential accounting records, private personal data, or private foundation documents.
+This repository is intended to contain demo-safe data only.
+
+Do not add private keys, credentials, tokens, real bank records, real confidential accounting records, private personal data, or private foundation documents.
 
 If there is doubt about a file, do not publish it until reviewed.
-
----
-
-# Current continuation marker
-
-This README source is prepared for repository publication staging.
-
-Recommended next step:
-
-```text
-Prepare a clean repository publication staging folder and verify the exact file list before Git commit or upload.
-```
-
-No Git commit is authorized by this document alone.
