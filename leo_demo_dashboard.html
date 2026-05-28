@@ -2103,6 +2103,7 @@ or place the dashboard in a local server context and use the "Try default output
         <option value="INFO">Info</option>
       </select>
       <button id="tryDefaultBtn" class="btn" type="button">Try default output path</button>
+      <button id="loadPublicDemoDataBtn" class="btn" type="button">Load public demo data</button>
     </section>
 
     <section class="flow" aria-label="LEO review flow">
@@ -2933,6 +2934,7 @@ or place the dashboard in a local server context and use the "Try default output
       elements.graphSupplierFilter.addEventListener("change", renderRelationshipGraph);
       elements.graphSignalFilter.addEventListener("change", renderRelationshipGraph);
       elements.tryDefaultBtn.addEventListener("click", loadDefaultReportPath);
+      elements.loadPublicDemoDataBtn.addEventListener("click", loadPublicDemoData);
       elements.exportReviewBtn.addEventListener("click", exportHumanReviewPackage);
       elements.clearReviewBtn.addEventListener("click", clearLocalReviewState);
       elements.copyReportBtn.addEventListener("click", copyReportText);
@@ -2963,6 +2965,18 @@ or place the dashboard in a local server context and use the "Try default output
         ingestReport(json, DEFAULT_OUTPUT_PATH);
       } catch (error) {
         alert("Default path could not be loaded. Use the file picker, or serve the demo folder locally. Details: " + error.message);
+      }
+    }
+
+    async function loadPublicDemoData() {
+      const publicDemoPath = "output/demo_evidence_report.json";
+      try {
+        const response = await fetch(publicDemoPath, { cache: "no-store" });
+        if (!response.ok) throw new Error("HTTP " + response.status + " while reading " + publicDemoPath);
+        const json = await response.json();
+        ingestReport(json, publicDemoPath);
+      } catch (error) {
+        alert("Public demo data could not be loaded. You can still use the file picker and select output/demo_evidence_report.json manually. Details: " + error.message);
       }
     }
 
