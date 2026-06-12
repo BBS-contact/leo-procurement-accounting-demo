@@ -1,0 +1,15 @@
+item_category,item_name,median_unit_price,currency,source
+office_supplies,Printer paper A4,100.00,PLN,internal_demo_benchmark
+it_services,Network infrastructure service,8000.00,PLN,internal_demo_benchmark
+it_equipment,Laptop workstation,18000.00,PLN,internal_demo_benchmark
+it_equipment,Server accessories,650.00,PLN,internal_demo_benchmark
+medical_equipment,Diagnostic kit,2100.00,PLN,internal_demo_benchmark
+medical_equipment,Protective equipment set,430.00,PLN,internal_demo_benchmark
+it_services,Software maintenance,4100.00,PLN,internal_demo_benchmark
+construction_services,Office renovation consultation,7000.00,PLN,internal_demo_benchmark
+construction_services,Renovation materials batch A,9500.00,PLN,internal_demo_benchmark
+construction_services,Renovation materials batch B,9500.00,PLN,internal_demo_benchmark
+construction_services,Renovation materials batch C,9500.00,PLN,internal_demo_benchmark
+it_equipment,Tablet devices,850.00,PLN,internal_demo_benchmark
+office_supplies,Archive folders,11.50,PLN,internal_demo_benchmark
+construction_services,Renovation materials batch D,9500.00,PLN,internal_demo_benchmark

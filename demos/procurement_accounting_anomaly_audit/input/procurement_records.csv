@@ -1,0 +1,15 @@
+record_id,date,department,supplier_id,item_category,item_name,quantity,unit_price,total_value,currency,procurement_method
+P-001,2026-01-10,Administration,S-001,office_supplies,Printer paper A4,500,230.00,115000.00,PLN,direct_purchase
+P-002,2026-01-12,IT,S-004,it_services,Network infrastructure service,1,15000.00,15000.00,PLN,direct_purchase
+P-003,2026-01-14,IT,S-003,it_equipment,Laptop workstation,5,19500.00,97500.00,PLN,direct_purchase
+P-004,2026-01-15,IT,S-003,it_equipment,Server accessories,8,600.00,4800.00,PLN,direct_purchase
+P-005,2026-01-16,Medical,S-005,medical_equipment,Diagnostic kit,3,2200.00,6600.00,PLN,direct_purchase
+P-006,2026-01-17,Medical,S-006,medical_equipment,Protective equipment set,12,450.00,5400.00,PLN,direct_purchase
+P-007,2026-01-18,IT,S-004,it_services,Software maintenance,1,4200.00,4200.00,PLN,direct_purchase
+P-008,2026-01-19,Facilities,S-003,construction_services,Office renovation consultation,1,7200.00,7200.00,PLN,direct_purchase
+P-009,2026-01-20,Facilities,S-002,construction_services,Renovation materials batch A,1,9600.00,9600.00,PLN,direct_purchase
+P-010,2026-01-21,Facilities,S-002,construction_services,Renovation materials batch B,1,9700.00,9700.00,PLN,direct_purchase
+P-011,2026-01-22,Facilities,S-002,construction_services,Renovation materials batch C,1,9500.00,9500.00,PLN,direct_purchase
+P-012,2026-01-23,IT,S-007,it_equipment,Tablet devices,6,900.00,5400.00,PLN,direct_purchase
+P-013,2026-01-24,Administration,S-001,office_supplies,Archive folders,500,12.00,6000.00,PLN,direct_purchase
+P-014,2026-01-25,Facilities,S-002,construction_services,Renovation materials batch D,1,9700.00,9700.00,PLN,direct_purchase

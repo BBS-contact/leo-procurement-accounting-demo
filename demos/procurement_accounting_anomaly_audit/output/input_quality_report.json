@@ -1,0 +1,57 @@
+{
+  "report_id": "LOCAL_INPUT_QUALITY_REPORT",
+  "generated_at": "2026-06-12T17:40:18.556156+00:00",
+  "input_dir": "D:\\BBS-09-01-2026\\leo\\repository_publication_staging\\procurement_accounting_anomaly_audit\\demos\\procurement_accounting_anomaly_audit\\input",
+  "status": "READY_FOR_ANALYSIS",
+  "summary": {
+    "file_count": 3,
+    "existing_file_count": 3,
+    "procurement_record_count": 14,
+    "supplier_profile_count": 7,
+    "benchmark_count": 14,
+    "issue_count": 0,
+    "error_count": 0,
+    "warning_count": 0,
+    "info_count": 0,
+    "ready_for_analysis": true
+  },
+  "files": {
+    "procurement_records": {
+      "path": "D:\\BBS-09-01-2026\\leo\\repository_publication_staging\\procurement_accounting_anomaly_audit\\demos\\procurement_accounting_anomaly_audit\\input\\procurement_records.csv",
+      "exists": true,
+      "row_count": 14,
+      "column_count": 11,
+      "required_columns_present": true,
+      "missing_columns": [],
+      "extra_columns": []
+    },
+    "supplier_profiles": {
+      "path": "D:\\BBS-09-01-2026\\leo\\repository_publication_staging\\procurement_accounting_anomaly_audit\\demos\\procurement_accounting_anomaly_audit\\input\\supplier_profiles.csv",
+      "exists": true,
+      "row_count": 7,
+      "column_count": 6,
+      "required_columns_present": true,
+      "missing_columns": [],
+      "extra_columns": []
+    },
+    "price_benchmarks": {
+      "path": "D:\\BBS-09-01-2026\\leo\\repository_publication_staging\\procurement_accounting_anomaly_audit\\demos\\procurement_accounting_anomaly_audit\\input\\price_benchmarks.csv",
+      "exists": true,
+      "row_count": 14,
+      "column_count": 5,
+      "required_columns_present": true,
+      "missing_columns": [],
+      "extra_columns": []
+    }
+  },
+  "issues": [],
+  "zero_autonomy_boundary": {
+    "autonomous_enforcement_actions": 0,
+    "canonical_registry_opened": false,
+    "canonical_registry_mutated": false,
+    "production_records_mutated": false,
+    "signing_or_key_access_performed": false,
+    "external_execution_performed": false,
+    "pipeline_mode": "LOCAL_READ_ONLY_INPUT_QUALITY_ASSESSMENT"
+  }
+}

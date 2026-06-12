@@ -1,0 +1,538 @@
+{
+  "package_type": "LEO_LOCAL_HUMAN_REVIEW_PACKAGE",
+  "package_version": "v2.0",
+  "exported_at": "2026-05-10T08:00:19.507Z",
+  "source_report_id": "LOCAL_DEMO_REPORT",
+  "source_name": "demo_evidence_report.json",
+  "zero_autonomy_boundary": {
+    "autonomous_enforcement_actions": 0,
+    "canonical_registry_opened": false,
+    "canonical_registry_mutated": false,
+    "production_records_mutated": false,
+    "signing_or_key_access_performed": false,
+    "external_execution_performed": false,
+    "reviewer_actions_storage": "browser localStorage until this export"
+  },
+  "summary": {
+    "findings_count": 21,
+    "evidence_count": 21,
+    "supplier_count": 7,
+    "high_or_critical_findings_count": 7,
+    "reviewed_findings_count": 1
+  },
+  "findings": [
+    {
+      "id": "EV-001",
+      "title": "Price above benchmark",
+      "severity": "CRITICAL",
+      "supplier": "North Bridge Office Supplies Sp. z o.o.",
+      "subject": "North Bridge Office Supplies Sp. z o.o.",
+      "detected_signal": "Observed unit price (230.00 PLN) is 2.30x benchmark median (100.00 PLN).",
+      "risk_meaning": "The paid or proposed unit price is materially higher than the benchmark. This may be legitimate, but it requires justification such as quality, urgency, specification, or market conditions.",
+      "reviewer_question": "Is there documented justification for the price difference?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "human_review": {
+        "action": "ESCALATE_FOR_REVIEW",
+        "note": "Price requires documented justification, benchmark explanation, and procurement need confirmation.",
+        "updatedAt": "2026-05-10T08:00:02.536Z"
+      }
+    },
+    {
+      "id": "EV-002",
+      "title": "Unusual quantity signal",
+      "severity": "MEDIUM",
+      "supplier": "North Bridge Office Supplies Sp. z o.o.",
+      "subject": "North Bridge Office Supplies Sp. z o.o.",
+      "detected_signal": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "risk_meaning": "The quantity is large enough to require operational justification, delivery context, and need verification.",
+      "reviewer_question": "Is the quantity supported by real need, delivery plan, and usage evidence?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-003",
+      "title": "Price above benchmark",
+      "severity": "HIGH",
+      "supplier": "QuickBuild Technical Services Sp. z o.o.",
+      "subject": "QuickBuild Technical Services Sp. z o.o.",
+      "detected_signal": "Observed unit price (15000.00 PLN) is 1.88x benchmark median (8000.00 PLN).",
+      "risk_meaning": "The paid or proposed unit price is materially higher than the benchmark. This may be legitimate, but it requires justification such as quality, urgency, specification, or market conditions.",
+      "reviewer_question": "Is there documented justification for the price difference?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-004",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "QuickBuild Technical Services Sp. z o.o.",
+      "subject": "QuickBuild Technical Services Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-005",
+      "title": "Supplier capacity risk",
+      "severity": "HIGH",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Low-capacity supplier (0.25) received high-value procurement (97500.00 PLN).",
+      "risk_meaning": "The supplier capacity appears weak relative to the procurement value. The reviewer should check whether the supplier can realistically deliver.",
+      "reviewer_question": "Can the supplier prove operational capability for this value and scope?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-006",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-007",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('consulting') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-008",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "GreenLeaf Catering Sp. z o.o.",
+      "subject": "GreenLeaf Catering Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('catering') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-009",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MedPaper Logistics Sp. z o.o.",
+      "subject": "MedPaper Logistics Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('logistics') does not clearly align with item category ('medical_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-010",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "QuickBuild Technical Services Sp. z o.o.",
+      "subject": "QuickBuild Technical Services Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('construction_services') does not clearly align with item category ('it_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-011",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "FreshStart Consulting Sp. z o.o.",
+      "subject": "FreshStart Consulting Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('consulting') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-012",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-013",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-014",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-015",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "ClearMed Equipment Group Sp. z o.o.",
+      "subject": "ClearMed Equipment Group Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('medical_equipment') does not clearly align with item category ('it_equipment'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-015"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-016",
+      "title": "Unusual quantity signal",
+      "severity": "MEDIUM",
+      "supplier": "North Bridge Office Supplies Sp. z o.o.",
+      "subject": "North Bridge Office Supplies Sp. z o.o.",
+      "detected_signal": "Large procurement quantity detected (500 units). The operational need and delivery context should be reviewed.",
+      "risk_meaning": "The quantity is large enough to require operational justification, delivery context, and need verification.",
+      "reviewer_question": "Is the quantity supported by real need, delivery plan, and usage evidence?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-016"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-017",
+      "title": "Supplier activity mismatch",
+      "severity": "MEDIUM",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Supplier declared activity ('general_trade') does not clearly align with item category ('construction_services'). This may be explainable, but it requires human review.",
+      "risk_meaning": "The supplier's declared activity does not clearly match the purchased category. This may indicate a documentation gap, subcontracting, or an unsuitable supplier.",
+      "reviewer_question": "Does the contract file explain why this supplier is suitable for this category?",
+      "recommendation": "Request contextual verification and supporting evidence.",
+      "evidence_ids": [
+        "EV-017"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-018",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-018"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-019",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-019"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-020",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-020"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    },
+    {
+      "id": "EV-021",
+      "title": "Threshold fragmentation pattern",
+      "severity": "HIGH",
+      "supplier": "MicroNova Trade Sp. z o.o.",
+      "subject": "MicroNova Trade Sp. z o.o.",
+      "detected_signal": "Multiple threshold-near fragments detected for the same supplier, department, and category. Cumulative value: 38500.00 PLN.",
+      "risk_meaning": "Several purchases appear close to a threshold and belong to the same supplier/category context. This may indicate artificial splitting and should be reviewed as a cluster.",
+      "reviewer_question": "Were these records split for legitimate operational reasons, or should they be treated as one procurement cluster?",
+      "recommendation": "Escalate for human review before any institutional decision.",
+      "evidence_ids": [
+        "EV-021"
+      ],
+      "human_review": {
+        "action": "UNREVIEWED",
+        "note": "",
+        "updatedAt": null
+      }
+    }
+  ],
+  "supplier_overview": [
+    {
+      "name": "North Bridge Office Supplies Sp. z o.o.",
+      "findingCount": 3,
+      "findingIds": [
+        "EV-001",
+        "EV-002",
+        "EV-016"
+      ],
+      "evidenceIds": [
+        "EV-001",
+        "EV-002",
+        "EV-016"
+      ],
+      "maxSeverity": "CRITICAL"
+    },
+    {
+      "name": "MicroNova Trade Sp. z o.o.",
+      "findingCount": 8,
+      "findingIds": [
+        "EV-012",
+        "EV-013",
+        "EV-014",
+        "EV-017",
+        "EV-018",
+        "EV-019",
+        "EV-020",
+        "EV-021"
+      ],
+      "evidenceIds": [
+        "EV-012",
+        "EV-013",
+        "EV-014",
+        "EV-017",
+        "EV-018",
+        "EV-019",
+        "EV-020",
+        "EV-021"
+      ],
+      "maxSeverity": "HIGH"
+    },
+    {
+      "name": "FreshStart Consulting Sp. z o.o.",
+      "findingCount": 4,
+      "findingIds": [
+        "EV-005",
+        "EV-006",
+        "EV-007",
+        "EV-011"
+      ],
+      "evidenceIds": [
+        "EV-005",
+        "EV-006",
+        "EV-007",
+        "EV-011"
+      ],
+      "maxSeverity": "HIGH"
+    },
+    {
+      "name": "QuickBuild Technical Services Sp. z o.o.",
+      "findingCount": 3,
+      "findingIds": [
+        "EV-003",
+        "EV-004",
+        "EV-010"
+      ],
+      "evidenceIds": [
+        "EV-003",
+        "EV-004",
+        "EV-010"
+      ],
+      "maxSeverity": "HIGH"
+    },
+    {
+      "name": "ClearMed Equipment Group Sp. z o.o.",
+      "findingCount": 1,
+      "findingIds": [
+        "EV-015"
+      ],
+      "evidenceIds": [
+        "EV-015"
+      ],
+      "maxSeverity": "MEDIUM"
+    },
+    {
+      "name": "GreenLeaf Catering Sp. z o.o.",
+      "findingCount": 1,
+      "findingIds": [
+        "EV-008"
+      ],
+      "evidenceIds": [
+        "EV-008"
+      ],
+      "maxSeverity": "MEDIUM"
+    },
+    {
+      "name": "MedPaper Logistics Sp. z o.o.",
+      "findingCount": 1,
+      "findingIds": [
+        "EV-009"
+      ],
+      "evidenceIds": [
+        "EV-009"
+      ],
+      "maxSeverity": "MEDIUM"
+    }
+  ],
+  "review_state": {
+    "EV-001": {
+      "action": "ESCALATE_FOR_REVIEW",
+      "note": "Price requires documented justification, benchmark explanation, and procurement need confirmation.",
+      "updatedAt": "2026-05-10T08:00:02.536Z"
+    }
+  }
+}
