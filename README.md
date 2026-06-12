@@ -1,5 +1,42 @@
 # LEO Procurement / Accounting Local Review Demo v0.6
 
+## Public Evaluation Repository v0.1
+
+This repository includes a public evaluation package for the procurement/accounting anomaly audit runtime capability.
+
+The evaluation package is located at:
+
+```text
+demos/procurement_accounting_anomaly_audit/
+```
+
+The automated evaluation tests are located at:
+
+```text
+tests/
+```
+
+To run the public evaluation test set:
+
+```powershell
+python -m pytest `
+  .\tests\test_procurement_accounting_input_pipeline.py `
+  .\tests\test_demo_evidence_report_validator.py `
+  .\tests\test_human_review_package_validator.py `
+  .\tests\test_input_quality_report.py `
+  -q
+```
+
+Expected result:
+
+```text
+63 passed
+```
+
+The package is intended for external review, testing, inspection, and critique. It does not make fraud findings, legal conclusions, donor compliance certifications, payment decisions, or autonomous enforcement actions.
+
+---
+
 This repository contains a local demonstration of the LEO Procurement / Accounting Review Module v0.6.
 
 LEO is a human-controlled institutional review support system. This demo shows how procurement/accounting data can be transformed into evidence-linked review signals, reviewer questions, reliability warnings, source-trust boundaries, and local review packages.
